@@ -4,6 +4,8 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.ksp)
 }
 
 val clientPropertiesFile = rootProject.file("client.properties")
@@ -23,16 +25,28 @@ android {
         if (clientPropertiesFile.exists()) {
             buildConfigField(
                 "String",
-                "CLIENT_ID",
-                clientProperties["CLIENT_ID"] as String
-            )
-
-            buildConfigField(
-                "String",
                 "CLIENT_SECRET",
                 clientProperties["CLIENT_SECRET"] as String
             )
         }
+
+        buildConfigField(
+            "String",
+            "CLIENT_ID",
+            project.properties["CLIENT_ID"] as String
+        )
+
+        buildConfigField(
+            "String",
+            "AUTH_BASE_URL",
+            project.properties["AUTH_BASE_URL"] as String
+        )
+
+        buildConfigField(
+            "String",
+            "BASE_URL",
+            project.properties["BASE_URL"] as String
+        )
     }
 
     buildTypes {
@@ -63,4 +77,10 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+
+    implementation(libs.hilt)
+    ksp(libs.hilt.compiler)
 }
