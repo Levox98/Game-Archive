@@ -1,7 +1,14 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
 }
+
+val clientPropertiesFile = rootProject.file("client.properties")
+val clientProperties = Properties()
+clientProperties.load(FileInputStream(clientPropertiesFile))
 
 android {
     namespace = "com.levox.game_archive"
@@ -12,6 +19,20 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+        if (clientPropertiesFile.exists()) {
+            buildConfigField(
+                "String",
+                "CLIENT_ID",
+                clientProperties["CLIENT_ID"] as String
+            )
+
+            buildConfigField(
+                "String",
+                "CLIENT_SECRET",
+                clientProperties["CLIENT_SECRET"] as String
+            )
+        }
     }
 
     buildTypes {
@@ -29,6 +50,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+    }
+    buildFeatures {
+        buildConfig = true
     }
 }
 
