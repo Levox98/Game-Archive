@@ -1,5 +1,6 @@
-package com.levox.game_archive.data
+package com.levox.game_archive.data.repository
 
+import com.levox.game_archive.data.AppCache
 import com.levox.game_archive.data.service.AuthService
 import com.levox.game_archive.domain.repository.AuthRepository
 import kotlinx.coroutines.Dispatchers

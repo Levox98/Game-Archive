@@ -1,6 +1,7 @@
 package com.levox.game_archive.data
 
 import com.levox.game_archive.BuildConfig
+import com.levox.game_archive.data.repository.AuthRepositoryImpl
 import com.levox.game_archive.data.service.AuthService
 import com.levox.game_archive.domain.repository.AuthRepository
 import dagger.Module
