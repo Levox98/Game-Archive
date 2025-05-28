@@ -38,6 +38,12 @@ android {
 
         buildConfigField(
             "String",
+            "REDIRECT_URI",
+            project.properties["REDIRECT_URI"] as String
+        )
+
+        buildConfigField(
+            "String",
             "AUTH_BASE_URL",
             project.properties["AUTH_BASE_URL"] as String
         )
