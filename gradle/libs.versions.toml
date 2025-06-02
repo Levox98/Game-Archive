@@ -10,12 +10,15 @@ material = "1.12.0"
 jetbrainsKotlinJvm = "2.0.21"
 coroutines = "1.10.2"
 
+navigation = "2.9.0"
+
 ksp = "2.0.21-1.0.27"
 
 retrofit = "3.0.0"
 okhttp = "4.12.0"
 
 hilt = "2.56.2"
+navigationComposeJvmstubs = "2.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -31,6 +34,8 @@ compose-material-icons-core = { group = "androidx.compose.material", name = "mat
 compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
 compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
